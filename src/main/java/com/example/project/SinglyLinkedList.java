@@ -110,7 +110,7 @@ public class SinglyLinkedList<T> {
                 deleteNth(i);
             else //Caso contrario lo anade
                 lst.add(aux);
-            aux.getNext();
+            aux= aux.getNext();
         }
     }
 
