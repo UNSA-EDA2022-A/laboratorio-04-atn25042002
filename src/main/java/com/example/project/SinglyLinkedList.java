@@ -110,8 +110,10 @@ public class SinglyLinkedList<T> {
             return;
         if(position == size-1)
             addLast(data);
+            return;
         if(position== 0)
             addFirst(data);
+            return;
         for(int i= 0; i< position - 1; i++){
             aux= aux.getNext();
         }
