@@ -1,6 +1,7 @@
 package com.example.project;
+import java.util.ArrayList;
 
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T extends Comparable<T>> {
     private Node<T> first; // Primero nodo de la lista
     private int size; // Tamano de la lista
 
@@ -100,17 +101,60 @@ public class SinglyLinkedList<T> {
 
     // Elimina aquellos nodos de la lista que esten duplicados
     public void deleteDuplicates() {
-
+         if(isEmpty()) // Si la lista esta vacia no hace nada
+            return;
+        ArrayList<T> lst = new ArrayList<T>();
+        Node<T> aux= first;
+        for(int i= 0; i< size; i++){ //Recorre los elementos
+            if(lst.contains(aux.getValue())){ //Si el ArrayList ya contenia el elemento lo borra
+                deleteNth(i);
+                i--;
+            }
+            else //Caso contrario lo anade
+                lst.add(aux.getValue());
+            aux= aux.getNext();
+        }
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
+        Node<T> aux = first;
+        if(position > size) //Si la posicion es mayor al indice maximo + 1 no hara nada
+            return;
+        if(position == size){ //Si la posicion es el ultimo elemento, ejectua addLast
+            addLast(data);
+            return;
+        }
+        if(position== 0){ //Si la posicion es el primer elemento, ejecuta addFirst
+            addFirst(data);
+            return;
+        }
 
+        for(int i= 0; i< position - 1; i++){ //Selecciona al elemento anterior en donde se va a insertar
+            aux= aux.getNext();
+        }
+        aux.setNext(new Node(data, aux.getNext())); //Modifica el nodo, relacionandolo con el insertado
+        size++;//Aumenta el tamano
     }
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
-
+        Node<T> aux = first;
+        if(position > size - 1) //Si la posicion es mayor al indice maximo, no hace nada
+            return;
+        if(position == size - 1){// Si la posicion es el ultimo elemento ejecuta removeLast
+            removeLast();
+            return;
+        }
+        if(position== 0){ // Si la posicion es el primer elemento ejecuta removeFirst
+            removeFirst();
+            return;
+        }
+        for(int i= 0; i< position - 1; i++){//Selecciona el elemento anterior al que se va a eliminar
+            aux= aux.getNext();
+        }
+        aux.setNext(aux.getNext().getNext());//Relaciona el elemento anterior con el elemento siguiente
+        size--; //Disminuye el tamano
     }
 
     public static void main(final String[] args) {
