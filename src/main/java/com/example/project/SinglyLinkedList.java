@@ -100,7 +100,17 @@ public class SinglyLinkedList<T> {
 
     // Elimina aquellos nodos de la lista que esten duplicados
     public void deleteDuplicates() {
-
+        if(isEmpty()) // Si la lista esta vacia no hace nada
+            return;
+        ArrayList<T> lst = new ArrayList<T>();
+        Node<T> aux= first;
+        for(int i= 0; i< size; i++){ //Recorre los elementos
+            if(lst.contains(aux)) //Si el ArrayList ya contenia el elemento lo borra
+                deleteNth(i);
+            else //Caso contrario lo añade
+                lst.add(aux);
+            aux.getNext();
+        }
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
@@ -121,7 +131,7 @@ public class SinglyLinkedList<T> {
             aux= aux.getNext();
         }
         aux.setNext(new Node(data, aux.getNext())); //Modifica el nodo, relacionandolo con el insertado
-        size++;//Aumenta el tamaño
+        size++;//Aumenta el tamano
     }
 
     // Elimina el nodo de una posicion especifica de la lista
@@ -141,7 +151,7 @@ public class SinglyLinkedList<T> {
             aux= aux.getNext();
         }
         aux.setNext(aux.getNext().getNext());//Relaciona el elemento anterior con el elemento siguiente
-        size--; //Disminuye el tamaño
+        size--; //Disminuye el tamano
     }
 
     public static void main(final String[] args) {
