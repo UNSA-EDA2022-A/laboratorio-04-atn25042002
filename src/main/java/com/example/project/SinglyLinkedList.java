@@ -105,11 +105,15 @@ public class SinglyLinkedList<T> {
             return;
         ArrayList<T> lst = new ArrayList<T>();
         Node<T> aux= first;
-        for(int i= 0; i< size; i++){ //Recorre los elementos
-            if(lst.contains(aux.getValue())) //Si el ArrayList ya contenia el elemento lo borra
-                deleteNth(i);
-            else //Caso contrario lo añade
-                lst.add(aux.getValue());
+        Node<T> aux2;
+        for(int i= 0; i< size - 1; i++){ //Recorre los elementos
+            aux2= aux;
+            for(int j= i; j<size; j++){
+                if(aux.getValue().compareTo(aux2.getValue())==0){
+                    deleteNth(j);
+                }
+                aux2= aux2.getNext();
+            }
             aux= aux.getNext();
         }
     }
