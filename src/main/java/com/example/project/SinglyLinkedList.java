@@ -105,7 +105,18 @@ public class SinglyLinkedList<T> {
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
     public void insertNth(T data, int position) {
-
+        Node<T> aux = first;
+        if(position> size - 1)
+            return;
+        if(position == size-1)
+            addLast(data);
+        if(position== 0)
+            addFirst(data);
+        for(int i= 0; i< position - 1; i++){
+            aux= aux.getNext();
+        }
+        aux.setNext(new Node(data, aux.getNext()));
+        size++;
     }
 
     // Elimina el nodo de una posicion especifica de la lista
