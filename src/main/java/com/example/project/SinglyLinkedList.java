@@ -118,11 +118,11 @@ public class SinglyLinkedList<T> {
         Node<T> aux = first;
         if(position > size) //Si la posicion es mayor al indice maximo + 1 no hara nada
             return;
-        if(position == size){ //Si la posición es el ultimo elemento, ejectua addLast
+        if(position == size){ //Si la posicion es el ultimo elemento, ejectua addLast
             addLast(data);
             return;
         }
-        if(position== 0){ //Si la posición es el primer elemento, ejecuta addFirst
+        if(position== 0){ //Si la posicion es el primer elemento, ejecuta addFirst
             addFirst(data);
             return;
         }
@@ -139,11 +139,11 @@ public class SinglyLinkedList<T> {
         Node<T> aux = first;
         if(position > size - 1) //Si la posicion es mayor al indice maximo, no hace nada
             return;
-        if(position == size - 1){// Si la posición es el ultimo elemento ejecuta removeLast
+        if(position == size - 1){// Si la posicion es el ultimo elemento ejecuta removeLast
             removeLast();
             return;
         }
-        if(position== 0){ // Sila posición es el primer elemento ejecuta removeFirst
+        if(position== 0){ // Sila posicion es el primer elemento ejecuta removeFirst
             removeFirst();
             return;
         }
