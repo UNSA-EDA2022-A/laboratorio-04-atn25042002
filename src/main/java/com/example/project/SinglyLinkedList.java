@@ -1,7 +1,7 @@
 package com.example.project;
 import java.util.ArrayList;
 
-public class SinglyLinkedList<T extends Comparable> {
+public class SinglyLinkedList<T extends Comparable<T>> {
     private Node<T> first; // Primero nodo de la lista
     private int size; // Tamano de la lista
 
