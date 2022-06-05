@@ -1,7 +1,7 @@
 package com.example.project;
 import java.util.ArrayList;
 
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T extends Comparable> {
     private Node<T> first; // Primero nodo de la lista
     private int size; // Tamano de la lista
 
@@ -100,7 +100,7 @@ public class SinglyLinkedList<T> {
     // NUEVOS METODOS
 
     // Elimina aquellos nodos de la lista que esten duplicados
-    public <T extends Comparable<T>> void deleteDuplicates() {
+    public void deleteDuplicates() {
          if(isEmpty()) // Si la lista esta vacia no hace nada
             return;
         ArrayList<T> lst = new ArrayList<T>();
