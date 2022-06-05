@@ -1,4 +1,5 @@
 package com.example.project;
+import java.util.ArrayList;
 
 public class SinglyLinkedList<T> {
     private Node<T> first; // Primero nodo de la lista
@@ -107,7 +108,7 @@ public class SinglyLinkedList<T> {
         for(int i= 0; i< size; i++){ //Recorre los elementos
             if(lst.contains(aux)) //Si el ArrayList ya contenia el elemento lo borra
                 deleteNth(i);
-            else //Caso contrario lo añade
+            else //Caso contrario lo anade
                 lst.add(aux);
             aux.getNext();
         }
@@ -143,7 +144,7 @@ public class SinglyLinkedList<T> {
             removeLast();
             return;
         }
-        if(position== 0){ // Sila posicion es el primer elemento ejecuta removeFirst
+        if(position== 0){ // Si la posicion es el primer elemento ejecuta removeFirst
             removeFirst();
             return;
         }
