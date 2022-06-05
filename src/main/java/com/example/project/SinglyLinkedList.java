@@ -100,7 +100,7 @@ public class SinglyLinkedList<T> {
     // NUEVOS METODOS
 
     // Elimina aquellos nodos de la lista que esten duplicados
-    public void deleteDuplicates() {
+    public <T extends Comparable> void deleteDuplicates() {
         if(isEmpty()) // Si la lista esta vacia no hace nada
             return;
         ArrayList<T> lst = new ArrayList<T>();
