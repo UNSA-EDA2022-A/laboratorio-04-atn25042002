@@ -126,7 +126,22 @@ public class SinglyLinkedList<T> {
 
     // Elimina el nodo de una posicion especifica de la lista
     public void deleteNth(int position) {
-
+        Node<T> aux = first;
+        if(position > size - 1) //Si la posicion es mayor al indice maximo, no hace nada
+            return;
+        if(position == size - 1){// Si la posición es el ultimo elemento ejecuta removeLast
+            removeLast();
+            return;
+        }
+        if(position== 0){ // Sila posición es el primer elemento ejecuta removeFirst
+            removeFirst();
+            return;
+        }
+        for(int i= 0; i< position - 1; i++){//Selecciona el elemento anterior al que se va a eliminar
+            aux= aux.getNext();
+        }
+        aux.setNext(aux.getNext().getNext());//Relaciona el elemento anterior con el elemento siguiente
+        size--; //Disminuye el tamaño
     }
 
     public static void main(final String[] args) {
