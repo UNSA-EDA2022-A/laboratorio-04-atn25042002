@@ -101,19 +101,17 @@ public class SinglyLinkedList<T> {
 
     // Elimina aquellos nodos de la lista que esten duplicados
     public <T extends Comparable> void deleteDuplicates() {
-        if(isEmpty()) // Si la lista esta vacia no hace nada
+         if(isEmpty()) // Si la lista esta vacia no hace nada
             return;
         ArrayList<T> lst = new ArrayList<T>();
         Node<T> aux= first;
-        Node<T> aux2;
-        for(int i= 0; i< size - 1; i++){ //Recorre los elementos
-            aux2= aux;
-            for(int j= i; j<size; j++){
-                if(aux.getValue().compareTo(aux2.getValue()) == 0){
-                    deleteNth(j);
-                }
-                aux2= aux2.getNext();
+        for(int i= 0; i< size; i++){ //Recorre los elementos
+            if(lst.contains(aux.getValue())){ //Si el ArrayList ya contenia el elemento lo borra
+                deleteNth(i);
+                i--;
             }
+            else //Caso contrario lo anade
+                lst.add(aux.getValue());
             aux= aux.getNext();
         }
     }
