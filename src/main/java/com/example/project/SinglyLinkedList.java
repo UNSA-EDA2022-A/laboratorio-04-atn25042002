@@ -117,7 +117,7 @@ public class SinglyLinkedList<T> {
     }
 
     // Inserta un nuevo nodo en una posicion especifica de la lista
-    public void insertNth(T data, int position) {
+    public <T extends Comparable> void insertNth(T data, int position) {
         Node<T> aux = first;
         if(position > size) //Si la posicion es mayor al indice maximo + 1 no hara nada
             return;
@@ -138,7 +138,7 @@ public class SinglyLinkedList<T> {
     }
 
     // Elimina el nodo de una posicion especifica de la lista
-    public void deleteNth(int position) {
+    public <T extends Comparable> void deleteNth(int position) {
         Node<T> aux = first;
         if(position > size - 1) //Si la posicion es mayor al indice maximo, no hace nada
             return;
