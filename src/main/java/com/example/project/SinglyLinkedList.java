@@ -109,7 +109,7 @@ public class SinglyLinkedList<T> {
         for(int i= 0; i< size - 1; i++){ //Recorre los elementos
             aux2= aux;
             for(int j= i; j<size; j++){
-                if(aux.getValue().compareTo(aux2.getValue())==0){
+                if(aux.getValue().compareTo(aux2.getValue()) == 0){
                     deleteNth(j);
                 }
                 aux2= aux2.getNext();
