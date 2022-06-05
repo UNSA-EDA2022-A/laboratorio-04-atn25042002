@@ -103,13 +103,13 @@ public class SinglyLinkedList<T> {
     public void deleteDuplicates() {
         if(isEmpty()) // Si la lista esta vacia no hace nada
             return;
-        ArrayList<Node<T>> lst = new ArrayList<Node<T>>();
+        ArrayList<T> lst = new ArrayList<T>();
         Node<T> aux= first;
         for(int i= 0; i< size; i++){ //Recorre los elementos
-            if(lst.contains(aux)) //Si el ArrayList ya contenia el elemento lo borra
+            if(lst.contains(aux.getValue())) //Si el ArrayList ya contenia el elemento lo borra
                 deleteNth(i);
-            else //Caso contrario lo anade
-                lst.add(aux);
+            else //Caso contrario lo añade
+                lst.add(aux.getValue());
             aux= aux.getNext();
         }
     }
